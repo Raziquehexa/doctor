@@ -1,0 +1,89 @@
+/* register page  */
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  flex-direction: column;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px;
+}
+.title {
+  font-size: 24px;
+  text-align: center;
+  color: #333;
+}
+
+.form-container form {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+}
+
+.form-container form .title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.form-container form input {
+  border: none;
+  border-radius: 0;
+}
+
+.form-container form button {
+  border: 1px solid black;
+  border-radius: 0;
+  color: white;
+  width: 250px;
+}
+
+/* AuthStyles.css or your preferred styling approach */
+.form-group {
+  flex: 0 0 48%;
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  /* margin-right: -15px;
+  margin-left: -15px; */
+  margin: 15px 0;
+}
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.flex-half {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+.btn-primary {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #45a049;
+}
