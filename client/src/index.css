@@ -6,12 +6,16 @@
   box-sizing: border-box;
 }
 
-
 .navbar {
   font-family: "Poppins", sans-serif;
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
+  position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
 }
 
 .nav-link {
@@ -27,16 +31,15 @@
   font-family: "roboto", sans-serif;
   letter-spacing: 3px;
 }
-/* =============================
-==========footer============= */
+
+/*=======footer============= */
 
 .footer {
   color: rgb(0, 0, 0);
   padding: 20px;
+  margin-top: 0px;
  
 }
-
-
 
 .footer a {
   text-decoration: none;
@@ -78,7 +81,6 @@
   background-color: black;
   color: white;
 }
-/* ========================================= */
 /* =========contact us ========= */
 .contactus {
   margin: 0;
@@ -113,6 +115,7 @@
   min-height: 90vh;
   text-align: center;
   padding: 20px;
+  margin-top: 61px;
 }
 
 .city-selection-container {
@@ -141,17 +144,12 @@
   justify-content: center;
   align-items: center;
   border: solid;
-  margin-bottom: 2px;
+  margin-bottom: 1px;
   width: 250%;
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   
 }
 
-/* .state-search {
-  padding: 8px;
-  margin-bottom: 10px;
-  
-} */
 .dropdown-content {
   position: absolute;
   background-color: #f9f9f9;
@@ -185,7 +183,7 @@
   border: 1px solid #ccc;
 }
 
-.book-appointment-btn {
+.doctor-btn {
   background-color: #2ecc71;
   color: #fff;
   padding: 10px 20px;
@@ -196,6 +194,7 @@
   align-items: center;
   border: solid;
   border-radius: 10px;
+  
 }
 
 .book-appointment-btn:hover {
@@ -224,4 +223,69 @@
 .disabled {
   background-color: #cccccc;
   cursor: not-allowed;
+}
+.card {
+  --bs-card-spacer-y: 1rem;
+  --bs-card-spacer-x: 1rem;
+  --bs-card-title-spacer-y: 0.5rem;
+  --bs-card-title-color: ;
+  --bs-card-subtitle-color: ;
+  --bs-card-border-width: var(--bs-border-width);
+  --bs-card-border-color: var(--bs-border-color-translucent);
+  --bs-card-border-radius: var(--bs-border-radius);
+  --bs-card-box-shadow: ;
+  --bs-card-inner-border-radius: calc(var(--bs-border-radius) - (var(--bs-border-width)));
+  --bs-card-cap-padding-y: 0.5rem;
+  --bs-card-cap-padding-x: 1rem;
+  --bs-card-cap-bg: rgba(var(--bs-body-color-rgb), 0.03);
+  --bs-card-cap-color: ;
+  --bs-card-height: ;
+  --bs-card-color: ;
+  --bs-card-bg: var(--bs-body-bg);
+  --bs-card-img-overlay-padding: 1rem;
+  --bs-card-group-margin: 0.75rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: var(--bs-card-height);
+  word-wrap: break-word;
+  background-color: var(--bs-card-bg);
+  background-clip: border-box;
+  border: var(--bs-card-border-width) solid var(--bs-card-border-color);
+  border-radius: var(--bs-card-border-radius);
+  margin-top: 61px;
+}
+/* @media (min-width: 768px) */
+.col-md-3 {
+    flex: 0 0 auto;
+    width: 25%;
+    margin-top: 85px;
+    
+}
+.text-primary {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-primary-rgb),var(--bs-text-opacity))!important;
+  margin-top: 61px;
+}
+.col-md-9 {
+    flex: 0 0 auto;
+    width: 75%;
+    margin-top: 61px;
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-.5 * var(--bs-gutter-x));
+  margin-left: calc(-.5 * var(--bs-gutter-x));
+  margin-top: 61px;
+}
+
+.list-group{
+margin-top: 32px;
+margin-bottom: 0.5em;
+font-weight: 500;
 }

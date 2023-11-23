@@ -11,7 +11,7 @@ const Header = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
   const categories = useCategory();
-  
+
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -45,7 +45,8 @@ const Header = () => {
             </Link>
             
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-              <SearchInput />
+             
+              {auth.user?.role === 1 || <SearchInput />}
               <li className="nav-item">
                 <NavLink to="/home" className="nav-link">
                   Home
@@ -59,12 +60,7 @@ const Header = () => {
                 >
                   Categories
                 </Link>
-                <ul className="dropdown-menu">
-                  <li>
-                    <Link className="dropdown-item" to={"/categories"}>
-                      All Categories
-                    </Link>
-                  </li>
+                <ul className="dropdown-menu" style={{ maxHeight: "300px", overflowY: "auto" }}>
                   {categories?.map((c) => (
                     <li key={c.slug}>
                       <Link
@@ -127,17 +123,20 @@ const Header = () => {
                   </li>
                 </>
               )}
-              <li className="nav-item">
-                <Badge count={cart?.length} showZero>
+              <li className="nav-item" 
+              >
+              {auth.user &&  <Badge count={cart?.length} showZero>
                   <NavLink to="/cart" className="nav-link">
                     Appointments
                   </NavLink>
-                </Badge>
+                </Badge>}
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
+        
     </>
   );
 };

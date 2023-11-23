@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import { useAuth } from "../context/auth";
  
 const HomePage = () => {
 
@@ -16,6 +17,7 @@ const HomePage = () => {
   const [total, setTotal] = useState(0);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+  const [auth ] = useAuth()
 
   //get all cat
   const getAllCategory = async () => {
@@ -139,9 +141,14 @@ const HomePage = () => {
                   <button
                     className="btn btn-success"
                     onClick={() => {
+                      if(auth.user){
+
                       setCart([...cart, p]);
                       localStorage.setItem("cart", JSON.stringify([...cart, p]));
                       toast.success("Your appointment is fixed Successfully");
+                      }else{
+                        navigate("/login")
+                      }
                     }}
                   >
                     Book Appointment

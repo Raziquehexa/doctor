@@ -151,7 +151,7 @@ const Login = () => {
   }, []);
 
   return (
-    <Layout title="Register - Doc_App">
+    <Layout title="Login - Doc_App">
       <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">LOGIN FORM</h4>
