@@ -359,169 +359,236 @@ const LandingPage = () => {
             Doctors
           </button>
         </div>
-        <h1>Comprehensive Medical Care In Delhi</h1>
-        <p>
-          Dharamshila Narayana Superspeciality Hospital, Delhi combines some of
+      </div>
+      <div className="landing1">
+        <h2 className="landing">Comprehensive Medical Care In Delhi</h2>
+        <p className="para1">
+          Dharamshila Hexabells Superspeciality Hospital, Delhi combines some of
           the most experienced and skilled superspecialists in the region with
           advanced facilities to provide comprehensive medical care.
         </p>
       </div>
-      <div className="d-flex">
-        <h3>Why Choose Dharamshila Narayana Superspeciality Hospital, Delhi</h3>
-        <h6>World-Class Quality</h6>
-        <p>
-          Dharamshila Narayana Superspeciality Hospital, Delhi is designed to
-          meet the national and international healthcare standards and is
-          committed to providing quality medical care and excellent patient
-          service.
-        </p>
 
-        <h3>Multispeciality Expertise</h3>
-        <p>
-          The facility brings together an expert team of superspecialist doctors
-          who work together with a compassionate nursing staff to provide
-          patients accurate diagnosis and medical care.
-        </p>
-        <h3>State-Of-The-Art Infrastructure</h3>
-        <p>
-          The hospital has high-end technological infrastructure and medical
-          facilities including advanced Operation Theatres, Digital X-Ray, and
-          Critical Care Units.
-        </p>
+      <div className="specialities-heading">
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <div>
+              <h3>
+                Why Choose Dharamshila Hexabells Superspeciality Hospital, Delhi
+              </h3>
+              <h4>World-Class Quality</h4>
+              <p>
+                Dharamshila Hexabells Superspeciality Hospital, Delhi is
+                designed to meet the national and international healthcare
+                standards and is committed to providing quality medical care and
+                excellent patient service.
+              </p>
 
-        <img src={landing2} width={300} />
-      </div>
-      <div className="specialities">
-        <h1>SOME OF OUR KEY SPECIALITIES ARE:</h1>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing3} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing4} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing5} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing6} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing7} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing8} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing9} width={300} />
-        </div>
-        <div>
-          <h3>Cardiology & Cardiac Surgery</h3>
-          <p>
-            At Narayana Health, we have a team of highly qualified and
-            experienced cardiologists, interventional cardiologists, and cardiac
-            surgeons who provide comprehensive care for a wide range of cardiac
-            conditions in people of all ages. Treatment for Cardiac conditions
-            offered at Narayana Health ranges from medication, treatment of
-            underlying conditions, interventional procedures to both minimally
-            invasive and open heart surgery. To provide comprehensive care to
-            patients, the team works closely with allied departments at Narayana
-            Health to ensure accurate diagnosis are reached and appropriate pre
-            and post treatment care is provided.
-          </p>
-          <img src={landing10} width={300} />
+              <h4>Multispeciality Expertise</h4>
+              <p>
+                The facility brings together an expert team of superspecialist
+                doctors who work together with a compassionate nursing staff to
+                provide patients accurate diagnosis and medical care.
+              </p>
+              <h4>State-Of-The-Art Infrastructure</h4>
+              <p>
+                The hospital has high-end technological infrastructure and
+                medical facilities including advanced Operation Theatres,
+                Digital X-Ray, and Critical Care Units.
+              </p>
+            </div>
+            <img src={landing2} width={300} />
+
+          </div>
         </div>
       </div>
+     
+      <div className="specialities-heading">
+        <h2 className="main-specialities-heading">
+          SOME OF OUR KEY SPECIALITIES ARE:
+        </h2>
+
+        <div className="specialities-wrapper  ">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing3} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">
+                Cardiology & Cardiac Surgery
+              </h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing4} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Oncology</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing5} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Gastroenterology</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing6} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Renal Sciences</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing7} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Orthopaedic</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing8} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Neuro Science</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing9} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Pulmonology</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="specialities-wrapper">
+          <div className="specialities flex-column flex-md-row">
+            <img src={landing10} width={300} />
+            <div>
+              <h3 className="text-center-speciality text-green">Transplants</h3>
+
+              <p>
+                At Hexabells Health, we have a team of highly qualified and
+                experienced cardiologists, interventional cardiologists, and
+                cardiac surgeons who provide comprehensive care for a wide range
+                of cardiac conditions in people of all ages. Treatment for
+                Cardiac conditions offered at Hexabells Health ranges from
+                medication, treatment of underlying conditions, interventional
+                procedures to both minimally invasive and open heart surgery. To
+                provide comprehensive care to patients, the team works closely
+                with allied departments at Hexabells Health to ensure accurate
+                diagnosis are reached and appropriate pre and post treatment
+                care is provided.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/********************************/}
     </Layout>
   );
 };
