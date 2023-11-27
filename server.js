@@ -12,7 +12,8 @@ import cors from "cors";
 dotenv.config();
 
 //databse config
-connectDB();
+
+
 
 //rest object
 const app = express();
@@ -27,6 +28,7 @@ app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
+
 //rest api
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to doctor_app</h1>");
@@ -36,9 +38,12 @@ app.get("/", (req, res) => {
 const PORT = process.env.PORT || 8080;
 
 //run listen
-app.listen(PORT, () => {
-  console.log(
-    `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
-      .white
-  );
-});
+
+connectDB().then(()=>{
+  app.listen(PORT, () => {
+    console.log(
+      `Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan
+        .white
+    );
+  });
+}).catch(()=>process.exit())

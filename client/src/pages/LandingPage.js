@@ -12,7 +12,7 @@ import landing8 from "../../src/imagesLanding/imgL8.jpg";
 import landing9 from "../../src/imagesLanding/imgL9.jpg";
 import landing10 from "../../src/imagesLanding/imgL10.jpg";
 
-const LandingPage = () => {
+const LandingPage = () =>  {
   const navigate = useNavigate();
 
   const [setProducts] = useState([]);
