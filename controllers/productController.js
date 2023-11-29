@@ -18,8 +18,6 @@ export const createProductController = async (req, res) => {
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });
-      // case !quantity:
-      //   return res.status(500).send({ error: "Quantity is Required" });
       case photo && photo.size > 1000000:
         return res
           .status(500)
@@ -225,7 +223,6 @@ export const productListController = async (req, res) => {
     const page = req.params.page ? req.params.page : 1;
     const products = await productModel
       .find({})
-      .select("-photo")
       .skip((page - 1) * perPage)
       .limit(perPage)
       .sort({ createdAt: -1 });
@@ -266,33 +263,7 @@ export const searchProductController = async (req, res) => {
   }
 };
 
-// similar products
-export const realtedProductController = async (req, res) => {
-  try {
-    const { pid, cid } = req.params;
-    const products = await productModel
-      .find({
-        category: cid,
-        _id: { $ne: pid },
-      })
-      .select("-photo")
-      .limit(3)
-      .populate("category");
-    res.status(200).send({
-      success: true,
-      products,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(400).send({
-      success: false,
-      message: "error while geting related product",
-      error,
-    });
-  }
-};
-
-// get prdocyst by catgory
+// get prduct by catgory
 export const productCategoryController = async (req, res) => {
   try {
     const category = await categoryModel.findOne({ slug: req.params.slug });

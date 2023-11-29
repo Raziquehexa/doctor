@@ -11,17 +11,20 @@ import landing7 from "../../src/imagesLanding/imgL7.jpg";
 import landing8 from "../../src/imagesLanding/imgL8.jpg";
 import landing9 from "../../src/imagesLanding/imgL9.jpg";
 import landing10 from "../../src/imagesLanding/imgL10.jpg";
-
+import SearchInput from "../components/Form/SearchInput";
 const LandingPage = () =>  {
   const navigate = useNavigate();
 
-  const [setProducts] = useState([]);
+  const [products,setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCities, setSelectedCities] = useState([]);
+  const [selectedLocation, setSelectedLocation] = useState('');
   const [setTotal] = useState(0);
   const [page] = useState(1);
   const [setLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
-  const [selected, setSelected] = useState(-1);
+  const [selected, setSelected] = useState("");
+  const [searchInput, setSearchInput] = useState("")
 
   // Fetch categories and products on component mount
   useEffect(() => {
@@ -79,6 +82,24 @@ const LandingPage = () =>  {
       setSelectedCities([...selectedCities, city]);
     }
   };
+
+// Handle search input change
+  const handleSearchInputChange = (e) => {
+    setSearchInput(e.target.value);
+  };
+
+  // Handle location selection
+  const handleLocationChange = (e) => {
+    setSelectedLocation(e.target.value);
+  };
+  // Handle search form submission
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    
+     console.log("Searching for:", SearchInput);
+   };
+
+
   const statesAndCities = [
     {
       state: "Andhra Pradesh",
@@ -312,54 +333,77 @@ const LandingPage = () =>  {
     <Layout title={"Hexabells_Doc_App"}>
       <div className="landingpage-img">
         <div className="city-selection-container">
-          {/* Dropdown Button */}
-          <div className="dropdown">
-            <button
-              className="dropbtn"
-              onClick={() => {
-                setShowDropdown((prev) => !prev);
-              }}
-            >
-              Select State
-            </button>
-            {showDropdown && (
-              <div className={`dropdown-content  `}>
-                {statesAndCities.map((stateData, index) => (
-                  <div key={index} className="state-container">
-                    <p>{stateData.state}</p>
-                    <div className="city-list">
-                      {stateData.cities.map((city, cityIndex) => (
-                        <label key={cityIndex}>
-                          <input
-                            type="checkbox"
-                            checked={selected === city.id}
-                            onChange={() => {
-                              setSelected((prev) =>
-                                prev === city.id ? -1 : city.id
-                              );
-                              handleCityChange(city);
-                            }}
-                          />
-                          {city?.name}
-                        </label>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
           {/* Online Appointment button */}
           <button
-            className={`doctor-btn ${isCitySelected() ? "" : "disabled"}`}
-            onClick={() => isCitySelected() && navigate("/appointments")}
-            disabled={!isCitySelected()}
+            className={`doctor-btn ${selected ? "" : "disabled"}`}
+            onClick={() => selected && navigate("/appointments")}
+            disabled={!selected}
           >
             Doctors
           </button>
         </div>
       </div>
+
+  {/* Search Box */}
+
+
+<div className="search-box-one hero_banner_main aos aos-init aos-animate" data-aos="fade-up">
+        <form action="https://doccure-wp.dreamstechnologies.com/elementor/search-doctors/" method="get" id="search_form" className="w-100" onSubmit={handleSearchSubmit}>
+
+          {/* Location Dropdown */}
+          <div className="d-flex items-center space-x-4 bg-white border rounded p-4 w-100">
+          <div className="search-input search-map-line flex items-center border px-3 py-2 rounded flex-grow-1">
+              <i className="feather-map-pin text-gray-500"></i>
+              <div className="form-group mb-0 ml-2">
+                <div className="dc-select">
+                  <select
+                    name="location"
+                    className="chosen-select outline-none "
+                    onChange={(e)=>setSelected(e.target.value)}
+                    value={selected}
+                  >
+                      <option value="" className="text-gray-500">Select a location</option>
+                  {
+                    statesAndCities.map((item,index)=>{
+                      return <optgroup key={index} label={item.state} >
+                        {
+                          item.cities.map((city)=>{
+                            return <option value={city.id}    key={city.id} > {city.name} </option>
+                          })
+                        }
+                      </optgroup>
+                    })
+                  }
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          {/* Search Input */}
+          <div className="search-input search-line1 flex items-center border px-3 py-2 rounded flex-grow-1">
+            <div className="form-group search-info mb-0">
+              <input type="hidden" name="searchby" className="form-control" value="doctors" />
+              <input
+                type="text"
+                name="keyword"
+                className="form-control outline-none"
+                placeholder="Search doctors, clinics,catagories etc."
+                value={searchInput}
+                onChange={handleSearchInputChange}
+              />
+              <i className="feather-search bficon text-gray-500"></i>
+            </div>
+          </div>
+
+          {/* Search Button */}
+          <div className="form-search-btn">
+            <input type="submit" className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer flex-grow-2" value="Search" />
+          </div>
+
+          </div>    
+        </form>
+      </div>
+
       <div className="landing1">
         <h2 className="landing">Comprehensive Medical Care In Delhi</h2>
         <p className="para1">
@@ -588,7 +632,6 @@ const LandingPage = () =>  {
           </div>
         </div>
       </div>
-      {/********************************/}
     </Layout>
   );
 };

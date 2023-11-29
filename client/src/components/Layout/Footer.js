@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   const footerStyle = {
     backgroundColor: "#333", // Dark background color
-    // backgroundColor: "dark",
     color: "#fff", // White text color
     padding: "10px", // Add padding for better spacing
   };
