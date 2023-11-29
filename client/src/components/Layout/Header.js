@@ -46,7 +46,7 @@ const Header = () => {
             
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
              
-              {auth.user?.role === 1 || <SearchInput />}
+              {/* {auth.user?.role === 1 || <SearchInput />} */}
               <li className="nav-item">
                 <NavLink to="/home" className="nav-link">
                   Home

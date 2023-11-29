@@ -1,2 +1,2 @@
 import axios from "axios";
-axios.defaults.baseURL = "https://good-plum-mackerel-suit.cyclic.app"
+axios.defaults.baseURL = "http://localhost:8080/"
