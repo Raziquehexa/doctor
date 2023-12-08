@@ -34,6 +34,12 @@ const CreateProduct = () => {
     setTimeSlots(updatedTimeSlots);
   };
   
+  const timeSuggestions = [
+    "08:00 AM", "08:30 AM", "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM",
+    "11:00 AM", "11:30 AM", "12:00 PM", "12:30 PM", "01:00 PM", "01:30 PM",
+    "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
+    "05:00 PM", "05:30 PM", "06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM"
+  ];
   //get all category
   const getAllCategory = async () => {
     try {
@@ -160,8 +166,8 @@ const CreateProduct = () => {
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
-              <div>
 
+      {/* <div className="timeSlots">
       <h2>Time Slot Form</h2>
       <div>
         <label>Start Time:</label>
@@ -191,6 +197,63 @@ const CreateProduct = () => {
             <li key={index}>
               {`Start Time: ${slot.startTime}, End Time: ${slot.endTime}`}
               <button onClick={() => removeTimeSlot(index)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div> */}
+    <div className="timeSlots">
+      <h2 className="mb-4">Time Slot Form</h2>
+
+      <div className="mb-3">
+        <label className="form-label">Start Time:</label>
+        <input
+          type="text"
+          list="startTimes"
+          className="form-control"
+          placeholder="Start time"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+        />
+        <datalist id="startTimes">
+          {timeSuggestions.map((time, index) => (
+            <option key={index} value={time} />
+          ))}
+        </datalist>
+      </div>
+
+      <div className="mb-3">
+        <label className="form-label">End Time:</label>
+        <input
+          type="text"
+          list="endTimes"
+          className="form-control"
+          placeholder="End time"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+        />
+        <datalist id="endTimes">
+          {timeSuggestions.map((time, index) => (
+            <option key={index} value={time} />
+          ))}
+        </datalist>
+      </div>
+
+      <div className="mb-3">
+        <button className="btn btn-primary" onClick={addTimeSlot}>
+          Add Time Slot
+        </button>
+      </div>
+
+      <div>
+        <label className="form-label">Time Slots:</label>
+        <ul className="list-group">
+          {timeSlots.map((slot, index) => (
+            <li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+              <span>{`Start Time: ${slot.startTime}, End Time: ${slot.endTime}`}</span>
+              <button className="btn btn-danger btn-sm" onClick={() => removeTimeSlot(index)}>
+                Remove
+              </button>
             </li>
           ))}
         </ul>
