@@ -16,6 +16,24 @@ const CreateProduct = () => {
   const [category, setCategory] = useState("");
   const [photo, setPhoto] = useState("");
 
+  const [timeSlots, setTimeSlots] = useState([]);
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
+
+  const addTimeSlot = () => {
+    if (startTime.trim() !== "" && endTime.trim() !== "") {
+      setTimeSlots([...timeSlots, { startTime, endTime }]);
+      setStartTime("");
+      setEndTime("");
+    }
+  };
+
+  const removeTimeSlot = (index) => {
+    const updatedTimeSlots = [...timeSlots];
+    updatedTimeSlots.splice(index, 1);
+    setTimeSlots(updatedTimeSlots);
+  };
+  
   //get all category
   const getAllCategory = async () => {
     try {
@@ -43,6 +61,9 @@ const CreateProduct = () => {
       productData.append("price", price);
       productData.append("photo", photo);
       productData.append("category", category);
+      // productData.append("timeSlots", timeSlots);
+      // productData.append("startTime", startTime);
+      // productData.append("endTime", endTime);
       const { data } = axios.post(
         "/api/v1/product/create-product",
         productData
@@ -67,7 +88,7 @@ const CreateProduct = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h1>Create Product</h1>
+            <h1>Create Doctor</h1>
             <div className="m-1 w-75">
               <Select
                 bordered={false}
@@ -134,14 +155,51 @@ const CreateProduct = () => {
                 <input
                   type="number"
                   value={price}
-                  placeholder="write a Price"
+                  placeholder="Doctor's fee"
                   className="form-control"
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
+              <div>
+
+      <h2>Time Slot Form</h2>
+      <div>
+        <label>Start Time:</label>
+        <input
+          type="text"
+          placeholder="Start time"
+          value={startTime}
+          onChange={(e) => setStartTime(e.target.value)}
+        />
+      </div>
+      <div>
+        <label>End Time:</label>
+        <input
+          type="text"
+          placeholder="End time"
+          value={endTime}
+          onChange={(e) => setEndTime(e.target.value)}
+        />
+      </div>
+      <div>
+        <button onClick={addTimeSlot}>Add Time Slot</button>
+      </div>
+      <div>
+        <label>Time Slots:</label>
+        <ul>
+          {timeSlots.map((slot, index) => (
+            <li key={index}>
+              {`Start Time: ${slot.startTime}, End Time: ${slot.endTime}`}
+              <button onClick={() => removeTimeSlot(index)}>Remove</button>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleCreate}>
-                  CREATE PRODUCT
+                  CREATE DOCTOR
                 </button>
               </div>
             </div>

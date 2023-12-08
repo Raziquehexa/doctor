@@ -117,8 +117,9 @@ const HomePage = () => {
         </header>
   
         <div className="row justify-content-center">
-          {products?.map((p) => (
-            <div className="card m-2" style={{ width: "18rem", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} key={p._id}>
+          {products?.map((p) => {
+            return (
+              <div className="card m-2" style={{ width: "18rem", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)" }} key={p._id}>
               <img
                 src={`/api/v1/product/product-photo/${p._id}`}
                 className="card-img-top doctor-image"
@@ -156,7 +157,8 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
   
         <div className="m-2 p-3 text-center">

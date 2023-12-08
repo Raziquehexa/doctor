@@ -163,7 +163,7 @@ const UpdateProduct = () => {
                 <input
                   type="text"
                   value={name}
-                  placeholder="write a name"
+                  placeholder="Doctor's name"
                   className="form-control"
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -172,7 +172,7 @@ const UpdateProduct = () => {
                 <textarea
                   type="text"
                   value={description}
-                  placeholder="write a description"
+                  placeholder="Description about doctor"
                   className="form-control"
                   onChange={(e) => setDescription(e.target.value)}
                 />
@@ -182,7 +182,7 @@ const UpdateProduct = () => {
                 <input
                   type="number"
                   value={price}
-                  placeholder="write a Price"
+                  placeholder="Doctor's fee"
                   className="form-control"
                   onChange={(e) => setPrice(e.target.value)}
                 />

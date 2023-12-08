@@ -2,10 +2,11 @@ import productModel from "../models/productModel.js";
 import categoryModel from "../models/categoryModel.js";
 import fs from "fs";
 import slugify from "slugify";
+import AppointmentModel from "../models/appointmentModel.js"
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category } =
+    const { name, description, price, category,timeSlots } =
       req.fields;
     const { photo } = req.files;
     //validation
@@ -282,3 +283,25 @@ export const productCategoryController = async (req, res) => {
     });
   }
 };
+
+
+export const addAppointment = async(req,res) =>{
+  try {
+    const  {_id} = req.user
+    const {doctorId,date} = req.body
+    const addedAppintment = await AppointmentModel.create({
+      users:_id,
+      appointmentDate:date,
+      products:doctorId
+    })
+    return res.send({addedAppintment,message:"Appointment added successfully"})
+
+  } catch (error) {
+     console.error(error);
+   return  res.status(400).send({
+      success: false,
+      error,
+      message: "Error While Getting products",
+    });
+  }
+}

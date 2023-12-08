@@ -12,20 +12,25 @@ import landing8 from "../../src/imagesLanding/imgL8.jpg";
 import landing9 from "../../src/imagesLanding/imgL9.jpg";
 import landing10 from "../../src/imagesLanding/imgL10.jpg";
 import SearchInput from "../components/Form/SearchInput";
-const LandingPage = () =>  {
+import { Select } from "antd";
+import { Link } from "react-router-dom";
+import useCategory from "../hooks/useCategory";
+// import Carousel from "react-multi-carousel";
+const LandingPage = () => {
   const navigate = useNavigate();
 
-  const [products,setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedCities, setSelectedCities] = useState([]);
-  const [selectedLocation, setSelectedLocation] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState("");
   const [setTotal] = useState(0);
   const [page] = useState(1);
   const [setLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const [selected, setSelected] = useState("");
-  const [searchInput, setSearchInput] = useState("")
-
+  const [searchInput, setSearchInput] = useState("");
+  const categories = useCategory();
+  const [department, setDepartment] = useState("");
   // Fetch categories and products on component mount
   useEffect(() => {
     getAllCategory();
@@ -83,7 +88,7 @@ const LandingPage = () =>  {
     }
   };
 
-// Handle search input change
+  // Handle search input change
   const handleSearchInputChange = (e) => {
     setSearchInput(e.target.value);
   };
@@ -92,13 +97,13 @@ const LandingPage = () =>  {
   const handleLocationChange = (e) => {
     setSelectedLocation(e.target.value);
   };
+
   // Handle search form submission
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    
-     console.log("Searching for:", SearchInput);
-   };
 
+    console.log("Searching for:", SearchInput);
+  };
 
   const statesAndCities = [
     {
@@ -329,79 +334,114 @@ const LandingPage = () =>  {
     },
   ];
   console.log(showDropdown);
+
   return (
-    <Layout title={"Hexabells_Doc_App"}>
+    <Layout title={"Doctor_App"}>
       <div className="landingpage-img">
-        <div className="city-selection-container">
-          {/* Online Appointment button */}
-          <button
-            className={`doctor-btn ${selected ? "" : "disabled"}`}
-            onClick={() => selected && navigate("/appointments")}
-            disabled={!selected}
+     
+        <div
+          className="searconeh-box- hero_banner_main aos aos-init aos-animate"
+          data-aos="fade-up"
+        >
+          <form
+            action="https://doccure-wp.dreamstechnologies.com/elementor/search-doctors/"
+            method="get"
+            id="search_form"
+            className="w-100"
+            onSubmit={handleSearchSubmit}
           >
-            Doctors
-          </button>
-        </div>
-      </div>
+           <h1 className="landingText1">Search the Best Doctors</h1>
+           <br/>
+           <h4 className="landingText2">Find out department and location based doctors near your area</h4>
 
-  {/* Search Box */}
-
-
-<div className="search-box-one hero_banner_main aos aos-init aos-animate" data-aos="fade-up">
-        <form action="https://doccure-wp.dreamstechnologies.com/elementor/search-doctors/" method="get" id="search_form" className="w-100" onSubmit={handleSearchSubmit}>
-
-          {/* Location Dropdown */}
-          <div className="d-flex items-center space-x-4 bg-white border rounded p-4 w-100">
-          <div className="search-input search-map-line flex items-center border px-3 py-2 rounded flex-grow-1">
-              <i className="feather-map-pin text-gray-500"></i>
-              <div className="form-group mb-0 ml-2">
-                <div className="dc-select">
-                  <select
-                    name="location"
-                    className="chosen-select outline-none "
-                    onChange={(e)=>setSelected(e.target.value)}
-                    value={selected}
-                  >
-                      <option value="" className="text-gray-500">Select a location</option>
-                  {
-                    statesAndCities.map((item,index)=>{
-                      return <optgroup key={index} label={item.state} >
-                        {
-                          item.cities.map((city)=>{
-                            return <option value={city.id}    key={city.id} > {city.name} </option>
-                          })
-                        }
-                      </optgroup>
-                    })
-                  }
-                  </select>
+            {/* Location Dropdown */}
+            <div className="d-flex flex-column flex-sm-row items-center space-x-4   rounded p-4 w-100">
+              <div className="search-input search-map-line bg-white d-flex flex-column justify-content-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0">
+                <i className="feather-map-pin text-gray-500"></i>
+                <div className="form-group mb-0 ml-2">
+                  <div className="dc-select">
+                    <select
+                      name="location"
+                      className="chosen-select outline-none "
+                      onChange={(e) => setSelected(e.target.value)}
+                      value={selected}
+                    >
+                      <option value="" className="text-gray-500">
+                        Choose a location
+                      </option>
+                      {statesAndCities.map((item, index) => {
+                        return (
+                          <optgroup key={index} label={item.state}>
+                            {item.cities.map((city) => {
+                              return (
+                                <option value={city.id} key={city.id}>
+                                  {" "}
+                                  {city.name}{" "}
+                                </option>
+                              );
+                            })}
+                          </optgroup>
+                        );
+                      })}
+                    </select>
+                  </div>
                 </div>
               </div>
+
+              {/* Search department Input */}
+              <div className="search-input bg-white search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0 ">
+                <select
+                  name="department"
+                  
+                  className="chosen-select outline-none "
+                  onChange={(e) => setDepartment(e.target.value)}
+                  value={department}
+                >
+                  <option value="" className="text-gray-500">
+                    Choose a department
+                  </option>
+                  {categories.map((c) => (
+                    <option key={c._id}>{c.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Search doctor Input */}
+              <div className="search-input bg-white search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1  ">
+                <div className="w-100 search-info mb-0">
+                  <input
+                    type="hidden"
+                    name="searchby"
+                    className="form-control"
+                    value="doctors"
+                  />
+                  <input
+                    type="text"
+                    name="keyword"
+                    className="form-control outline-none"
+                    placeholder="Choose Doctor"
+                    value={searchInput}
+                    onChange={handleSearchInputChange}
+                  />
+                  <i className="feather-search bficon text-gray-500"></i>
+                </div>
+              </div>
+
+              {/* Search Button */}
+              <div className={`form-search-btn ${selected ? "" : "disabled"}`}>
+                <button
+                  type="button"
+                  className="btn bg-blue-500 border-0 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer flex-grow-2"
+                  value="Search"
+                  disabled={!selected}
+                  onClick={() => selected && navigate("/home")}
+                >
+                  Search
+                </button>
+              </div>
             </div>
-
-          {/* Search Input */}
-          <div className="search-input search-line1 flex items-center border px-3 py-2 rounded flex-grow-1">
-            <div className="form-group search-info mb-0">
-              <input type="hidden" name="searchby" className="form-control" value="doctors" />
-              <input
-                type="text"
-                name="keyword"
-                className="form-control outline-none"
-                placeholder="Search doctors, clinics,catagories etc."
-                value={searchInput}
-                onChange={handleSearchInputChange}
-              />
-              <i className="feather-search bficon text-gray-500"></i>
-            </div>
-          </div>
-
-          {/* Search Button */}
-          <div className="form-search-btn">
-            <input type="submit" className="btn bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer flex-grow-2" value="Search" />
-          </div>
-
-          </div>    
-        </form>
+          </form>
+        </div>
       </div>
 
       <div className="landing1">
@@ -442,11 +482,10 @@ const LandingPage = () =>  {
               </p>
             </div>
             <img src={landing2} width={300} />
-
           </div>
         </div>
       </div>
-     
+
       <div className="specialities-heading">
         <h2 className="main-specialities-heading">
           SOME OF OUR KEY SPECIALITIES ARE:
@@ -503,7 +542,9 @@ const LandingPage = () =>  {
           <div className="specialities flex-column flex-md-row">
             <img src={landing5} width={300} />
             <div>
-              <h3 className="text-center-speciality text-green">Gastroenterology</h3>
+              <h3 className="text-center-speciality text-green">
+                Gastroenterology
+              </h3>
 
               <p>
                 At Hexabells Health, we have a team of highly qualified and
@@ -525,7 +566,9 @@ const LandingPage = () =>  {
           <div className="specialities flex-column flex-md-row">
             <img src={landing6} width={300} />
             <div>
-              <h3 className="text-center-speciality text-green">Renal Sciences</h3>
+              <h3 className="text-center-speciality text-green">
+                Renal Sciences
+              </h3>
 
               <p>
                 At Hexabells Health, we have a team of highly qualified and
@@ -569,7 +612,9 @@ const LandingPage = () =>  {
           <div className="specialities flex-column flex-md-row">
             <img src={landing8} width={300} />
             <div>
-              <h3 className="text-center-speciality text-green">Neuro Science</h3>
+              <h3 className="text-center-speciality text-green">
+                Neuro Science
+              </h3>
 
               <p>
                 At Hexabells Health, we have a team of highly qualified and

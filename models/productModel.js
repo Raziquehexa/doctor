@@ -23,10 +23,18 @@ const productSchema = new mongoose.Schema(
       ref: "Category",
       required: true,
     },
+
     photo: {
       data: Buffer,
       contentType: String,
     },
+
+    timeSlots: [
+      {
+        startTime: String,
+        endTime: String,
+      },
+    ],
   },
   { timestamps: true }
 );

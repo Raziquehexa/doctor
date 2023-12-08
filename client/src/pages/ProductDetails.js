@@ -57,9 +57,6 @@ const ProductDetails = () => {
       </div>
       <hr />
       <div className="row container">
-        {/* {relatedProducts.length < 1 && (
-          <p className="text-center">No Similar Products found</p>
-        )} */}
         <div className="d-flex flex-wrap">
           {relatedProducts?.map((p) => (
             <div className="card m-2" style={{ width: "18rem" }}>
@@ -72,13 +69,6 @@ const ProductDetails = () => {
                 <h5 className="card-title">{p.name}</h5>
                 <p className="card-text">{p.description.substring(0, 30)}...</p>
                 <p className="card-text"> $ {p.price}</p>
-                {/* <button
-                  className="btn btn-primary ms-1"
-                  onClick={() => navigate(`/product/${p.slug}`)}
-                >
-                  More Details
-                </button> */}
-                {/* <button class="btn btn-secondary ms-1">ADD TO CART</button> */}
               </div>
             </div>
           ))}
