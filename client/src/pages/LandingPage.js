@@ -354,9 +354,10 @@ const LandingPage = () => {
            <br/>
            <h4 className="landingText2">Find out department and location based doctors near your area</h4>
 
-            {/* Location Dropdown */}
-            <div className="d-flex flex-column flex-sm-row items-center space-x-4   rounded p-4 w-100">
-              <div className="search-input search-map-line bg-white d-flex flex-column justify-content-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0">
+           
+            <div className="waterInput d-flex flex-column flex-sm-row items-center space-x-10   rounded p-4 w-100 gap-2">
+            
+              <div className="search-input search-map-line d-flex flex-column justify-content-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0">
                 <i className="feather-map-pin text-gray-500"></i>
                 <div className="form-group mb-0 ml-2">
                   <div className="dc-select">
@@ -389,7 +390,7 @@ const LandingPage = () => {
               </div>
 
               {/* Search department Input */}
-              <div className="search-input bg-white search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0 ">
+              <div className="search-input search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1 mb-3 mb-sm-0 ">
                 <select
                   name="department"
                   
@@ -407,8 +408,8 @@ const LandingPage = () => {
               </div>
 
               {/* Search doctor Input */}
-              <div className="search-input bg-white search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1  ">
-                <div className="w-100 search-info mb-0">
+              <div className="search-input search-line1 d-flex items-center border px-3 py-2 rounded flex-grow-1  ">
+                <div className="w-100 search-info mb-0 ">
                   <input
                     type="hidden"
                     name="searchby"
@@ -418,12 +419,12 @@ const LandingPage = () => {
                   <input
                     type="text"
                     name="keyword"
-                    className="form-control outline-none"
+                    className="form-control outline-none border-0"
                     placeholder="Choose Doctor"
                     value={searchInput}
                     onChange={handleSearchInputChange}
                   />
-                  <i className="feather-search bficon text-gray-500"></i>
+                  <i className="feather-search bficon text-gray-700"></i>
                 </div>
               </div>
 
@@ -431,10 +432,12 @@ const LandingPage = () => {
               <div className={`form-search-btn ${selected ? "" : "disabled"}`}>
                 <button
                   type="button"
-                  className="btn bg-blue-500 border-0 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer flex-grow-2"
+                  className="btn border-0 px-4 py-2 rounded  cursor-pointer flex-grow-2 mr-2 text-white "
+                 
                   value="Search"
                   disabled={!selected}
                   onClick={() => selected && navigate("/home")}
+                  style={{ fontSize: "1.3rem" }}
                 >
                   Search
                 </button>

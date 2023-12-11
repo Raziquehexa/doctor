@@ -33,7 +33,7 @@ const Products = () => {
           <p className="text-center">
             Number of Doctors Available Today : {products.length}
           </p>
-          <div className="d-flex flex-wrap">
+           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <Link
                 key={p._id}
@@ -62,7 +62,9 @@ const Products = () => {
                 </div>
               </Link>
             ))}
-          </div>
+          </div> 
+
+
         </div>
       </div>
     </Layout>
